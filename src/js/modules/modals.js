@@ -1,25 +1,27 @@
+function showModal(modalSelector, btn='none') {
+    const modal = document.querySelector(modalSelector);
+
+    if (btn.nodeName === 'IMG') {
+        btn.style.display = 'none';
+    }
+    modal.style.display = 'block';
+    modal.classList.add('shown');
+    document.body.style.overflow = 'hidden';       
+}
+
+function hideModal(modalSelector, btn='none') {
+    const modal = document.querySelector(modalSelector);
+
+    if (btn.nodeName === 'IMG') {
+        btn.style.display = 'block';
+    } 
+    modal.style.display = 'none';
+    modal.classList.remove('shown');
+    document.body.style.overflow = '';
+}
+
 
 function modals() {
-
-    function showModal(modalSelector, btn) {
-        const modal = document.querySelector(modalSelector);
-
-        if (btn.nodeName === 'IMG') {
-            btn.style.display = 'none';
-        }
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';       
-    }
-
-    function hideModal(modalSelector, btn) {
-        const modal = document.querySelector(modalSelector);
-
-        if (btn.nodeName === 'IMG') {
-            btn.style.display = 'block';
-        } 
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-    }
 
     function bindModal(openSelector, modalSelector, closeSelector) {
         const openModal = document.querySelectorAll(openSelector),
@@ -48,3 +50,5 @@ function modals() {
 }
 
 export default modals;
+export {showModal};
+export {hideModal};
