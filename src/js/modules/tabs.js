@@ -18,11 +18,11 @@ function tabs(tabSelector, tabContentSelector, tabContainerSelector) {
 
                 if (tab.classList.contains('grandmother') || tab.classList.contains('granddad')){
                     noPortfolio.style.display = 'block';
-                    tabContainer.append(noPortfolio.parentElement);
                 } else if (parent.classList.contains(tab.className.split(' ')[0])) {
                     content.style.display = 'block';
                     tabContainer.prepend(parent);
-                }
+                    noPortfolio.style.display = 'none';
+                } 
             });          
         });      
     });

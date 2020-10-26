@@ -1744,6 +1744,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_modals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modals */ "./src/js/modules/modals.js");
 /* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/tabs */ "./src/js/modules/tabs.js");
 /* harmony import */ var _modules_sizePicture__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/sizePicture */ "./src/js/modules/sizePicture.js");
+/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
+
 
 
 
@@ -1751,6 +1753,8 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_modals__WEBPACK_IMPORTED_MODULE_0__["default"])();
   Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_1__["default"])('.portfolio-menu li', '.portfolio-block img', '.portfolio-wrapper');
   Object(_modules_sizePicture__WEBPACK_IMPORTED_MODULE_2__["default"])('.sizes-block');
+  Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])('.main-slider-item');
+  Object(_modules_slider__WEBPACK_IMPORTED_MODULE_3__["default"])('.feedback-slider-item', '.main-prev-btn', '.main-next-btn', true);
 });
 
 /***/ }),
@@ -1870,6 +1874,72 @@ function sizePicture(blockSelector) {
 
 /***/ }),
 
+/***/ "./src/js/modules/slider.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/slider.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function slider(slide, prevSlide, nextSlide, horizontal) {
+  var slides = document.querySelectorAll(slide);
+  var slideIndex = 1;
+
+  function openSlide(n) {
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+
+    if (slideIndex < 1) {
+      slideIndex = slides.length;
+    }
+
+    slides.forEach(function (slide) {
+      slide.classList.add('animated');
+      slide.style.display = 'none';
+    });
+    slides[slideIndex - 1].style.display = 'block';
+  }
+
+  openSlide(slideIndex);
+  setInterval(function () {
+    openSlide(++slideIndex);
+
+    if (horizontal) {
+      slides[slideIndex - 1].classList.remove('slideInRight');
+      slides[slideIndex - 1].classList.add('slideInLeft');
+    }
+
+    slides[slideIndex - 1].classList.remove('slideInUp');
+    slides[slideIndex - 1].classList.add('slideInDown');
+  }, 2000);
+
+  try {
+    var prev = document.querySelector(prevSlide),
+        next = document.querySelector(nextSlide);
+    next.addEventListener('click', function () {
+      openSlide(++slideIndex);
+      slides[slideIndex - 1].classList.remove('slideInRight');
+      slides[slideIndex - 1].classList.add('slideInLeft');
+    });
+    prev.addEventListener('click', function () {
+      openSlide(--slideIndex);
+      slides[slideIndex - 1].classList.remove('slideInLeft');
+      slides[slideIndex - 1].classList.add('slideInRight');
+    });
+  } catch (e) {}
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (slider);
+
+/***/ }),
+
 /***/ "./src/js/modules/tabs.js":
 /*!********************************!*\
   !*** ./src/js/modules/tabs.js ***!
@@ -1903,10 +1973,10 @@ function tabs(tabSelector, tabContentSelector, tabContainerSelector) {
 
         if (tab.classList.contains('grandmother') || tab.classList.contains('granddad')) {
           noPortfolio.style.display = 'block';
-          tabContainer.append(noPortfolio.parentElement);
         } else if (parent.classList.contains(tab.className.split(' ')[0])) {
           content.style.display = 'block';
           tabContainer.prepend(parent);
+          noPortfolio.style.display = 'none';
         }
       });
     });
