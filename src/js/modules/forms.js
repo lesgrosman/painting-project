@@ -1,6 +1,6 @@
 import {postData} from '../services/services';
 
-function forms() {
+const forms = () => {
     const forms = document.querySelectorAll('form'),
           inputs = document.querySelectorAll('input'),
           upload = document.querySelectorAll('[name="upload"]');
@@ -116,5 +116,5 @@ function forms() {
 
         });
     });
-}
+};
 export default forms;

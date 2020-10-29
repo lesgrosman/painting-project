@@ -1,4 +1,4 @@
-function slider(slide, prevSlide, nextSlide, horizontal) {
+const slider = (slide, prevSlide, nextSlide, horizontal) => {
 
     const slides = document.querySelectorAll(slide);
 
@@ -51,6 +51,6 @@ function slider(slide, prevSlide, nextSlide, horizontal) {
             slides[slideIndex - 1].classList.add('slideInRight');          
         });
     } catch (e) {}   
-}
+};
 
 export default slider;

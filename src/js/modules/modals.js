@@ -19,7 +19,7 @@ function hideModal(modalSelector, btn='none') {
 }
 
 
-function modals() {
+const modals = () => {
 
     function bindModal(openSelector, modalSelector, closeSelector) {
         const openModal = document.querySelectorAll(openSelector),
@@ -45,7 +45,7 @@ function modals() {
     bindModal('.button-design', '.popup-design', '.popup-design .popup-close');
     bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
     bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close');
-}
+};
 
 export default modals;
 export {showModal};

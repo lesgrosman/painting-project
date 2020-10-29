@@ -40,22 +40,24 @@ const  calc = (resultSelector, promocodeSelector) => {
                         .then(data => {
                             size = parseInt(data[prop.value]);
                             calculate();
-                        });
+                        })
+                        .catch(error => alert('Please, start JSON server'));
                     break;
                 case 'material':
                     getResources('http://localhost:3000/prices/material')
                         .then(data => {
                             material = parseInt(data[prop.value]);
                             calculate();
-                        });
+                        })
+                        .catch(error => alert('Please, start JSON server'));
                     break;
                 case 'options':
                     getResources('http://localhost:3000/prices/options')
                         .then(data => {
                             options = parseInt(data[prop.value]);
                             calculate();
-                            console.log(options);
-                        });
+                        })
+                        .catch(error => alert('Please, start JSON server'));
                     break;
             }
         });

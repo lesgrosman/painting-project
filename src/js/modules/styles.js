@@ -1,6 +1,6 @@
 import {getResources} from '../services/services';
 
-function styles(trigerSelector, parentSelector) {
+const styles = (trigerSelector, parentSelector) => {
 
     const triger = document.querySelector(trigerSelector);
 
@@ -27,10 +27,8 @@ function styles(trigerSelector, parentSelector) {
     triger.addEventListener('click', () => {
         getResources('http://localhost:3000/styles')
         .then(data => addStyle(data))
-        .catch(error => console.log(error));
-
-        
+        .catch(error => alert('Please start JSON server'));       
     });
-}
+};
 
 export default styles;

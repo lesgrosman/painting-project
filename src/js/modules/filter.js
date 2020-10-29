@@ -1,4 +1,4 @@
-function filter(tabSelector, tabContentSelector, tabContainerSelector) {
+const filter = (tabSelector, tabContentSelector, tabContainerSelector) => {
     const tabs = document.querySelectorAll(tabSelector),
           tabContent = document.querySelectorAll(tabContentSelector),
           tabContainer = document.querySelector(tabContainerSelector),
@@ -30,6 +30,6 @@ function filter(tabSelector, tabContentSelector, tabContainerSelector) {
             });          
         });      
     });
-}
+};
 
 export default filter;

@@ -1,4 +1,4 @@
-function sizePicture(blockSelector) {
+const sizePicture = (blockSelector) => {
     const blocks = document.querySelectorAll(blockSelector);
 
     function showImg(block) {
@@ -30,6 +30,6 @@ function sizePicture(blockSelector) {
             hideImg(block);
         });
     });
-}
+};
 
 export default sizePicture;
