@@ -1,15 +1,15 @@
 import {getResources} from '../services/services';
 
-const  calc = (resultSelector) => {
+const  calc = (resultSelector, promocodeSelector) => {
     const resultSpace = document.querySelector(resultSelector),
-          promocode = document.querySelector('.promocode');
+          promocode = document.querySelector(promocodeSelector);
 
     let res, size, material,
         options = 0;
 
     function checkPromocode() {
         if (promocode.value === 'IWANTPOPART' && (size && material)) {
-            resultSpace.textContent = res - (res * 0.3) + ' UAH';  
+            resultSpace.textContent = res * 0.7 + ' UAH';  
         } else if (promocode.value !== 'IWANTPOPART' && (size && material)) {
             resultSpace.textContent = res + ' UAH';  
         } else {
@@ -20,7 +20,7 @@ const  calc = (resultSelector) => {
     function calculate() {
         if (!size || !material) {
             res = 'You need to choose size AND materials';
-        } else if (size && material && !options) {
+        } else if (!options) {
             res = size + material;
         } else {
             res = size + material + options;
@@ -28,9 +28,7 @@ const  calc = (resultSelector) => {
         checkPromocode();
     }
 
-    promocode.addEventListener('input', () => {
-        checkPromocode();       
-    });
+    promocode.addEventListener('input', checkPromocode);
 
     function readDataFromInputs(selector) {
         const prop = document.querySelector(selector);
@@ -56,6 +54,7 @@ const  calc = (resultSelector) => {
                         .then(data => {
                             options = parseInt(data[prop.value]);
                             calculate();
+                            console.log(options);
                         });
                     break;
             }

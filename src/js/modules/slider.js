@@ -32,7 +32,7 @@ function slider(slide, prevSlide, nextSlide, horizontal) {
         slides[slideIndex - 1].classList.remove('slideInUp');
         slides[slideIndex - 1].classList.add('slideInDown');
         
-    }, 2000);
+    }, 3000);
 
     try {
         const prev = document.querySelector(prevSlide),
