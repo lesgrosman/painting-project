@@ -1,9 +1,9 @@
 const postData = async (url, data) => {
     const res = await fetch(url, {
         method: "POST",
-        headers: {
-            "Content-type": "application/json"
-        },
+        // headers: {
+        //     "Content-type": "application/json"
+        // },
         body: data
     });
 
@@ -11,7 +11,19 @@ const postData = async (url, data) => {
         throw new Error("Error");
     }
 
+    return await res.text();
+};
+
+const getResources = async (url) => {
+    const res = await fetch(url);
+
+    if (!res.ok) {
+        throw new Error(`Could not fetch ${url}, status: ${res.status}`);
+    } 
+
+
     return await res.json();
 };
 
-export default postData;
+export {postData};
+export {getResources};

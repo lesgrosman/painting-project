@@ -5,7 +5,6 @@ function showModal(modalSelector, btn='none') {
         btn.style.display = 'none';
     }
     modal.style.display = 'block';
-    modal.classList.add('shown');
     document.body.style.overflow = 'hidden';       
 }
 
@@ -16,7 +15,6 @@ function hideModal(modalSelector, btn='none') {
         btn.style.display = 'block';
     } 
     modal.style.display = 'none';
-    modal.classList.remove('shown');
     document.body.style.overflow = '';
 }
 

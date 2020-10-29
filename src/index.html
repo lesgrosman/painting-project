@@ -173,35 +173,7 @@
 						<h4>Pen</h4>
 						<a href="#">More details</a>
 					</div>
-				</div>
-				<div class="hidden-lg hidden-md hidden-sm hidden-xs styles-2">
-					<div class=styles-block>
-						<img src=assets/img/styles-5.jpg alt>
-						<h4>Pastel</h4>
-						<a href="#">More details</a>
-					</div>
-				</div>
-				<div class="hidden-lg hidden-md hidden-sm hidden-xs styles-2">
-					<div class=styles-block>
-						<img src=assets/img/styles-6.jpg alt>
-						<h4>Pop-art</h4>
-						<a href="#">More details</a>
-					</div>
-				</div>
-				<div class="hidden-lg hidden-md hidden-sm hidden-xs styles-2">
-					<div class=styles-block>
-						<img src=assets/img/styles-7.png alt>
-						<h4>Photomosaic</h4>
-						<a href="#">More details</a>
-					</div>
-				</div>
-				<div class="hidden-lg hidden-md hidden-sm hidden-xs styles-2">
-					<div class=styles-block>
-						<img src=assets/img/styles-8.jpg alt>
-						<h4>Caricature</h4>
-						<a href="#">More details</a>
-					</div>
-				</div>
+				</div>				
 			</div>
 			<button class="button button-transparent button-styles">See more styles</button>
 		</div>
@@ -231,7 +203,7 @@
 			<h2>Calculate the cost and get a 30% discount</h2>
 			<div class=row>
 				<div class="col-md-4 col-offset-1">
-					<form class=form action=# method=POST enctype=multipart/form-data>
+					<form class="form calc_form" action=# method=POST enctype=multipart/form-data>
 						<h4>Load your photo</h4>
 						<div class=file_upload>
 							<button type=button>Load your photo</button>
@@ -239,23 +211,23 @@
 							<input type=file name=upload>
 						</div>
 						<select id=size>
-							<option >Choose painting size</option>
-							<option >40x50</option>
-							<option >50x70</option>
-							<option >70x70</option>
-							<option >70x100</option>
+							<option value="">Choose painting size</option>
+							<option value="small">40x50</option>
+							<option value="medium">50x70</option>
+							<option value="big">70x70</option>
+							<option value="huge">70x100</option>
 						</select>
 						<select id=material>
-							<option >Choose painting materials</option>
-							<option   title="Graceful, makes it easy to create texture, suitable for decorative oil paintings.">Холст из волокна</option>
-							<option   title="Rough enough to create a sense of reality, suitable for classic landscapes, still lifes and portraits.">Льняной холст</option>
-							<option  title="Sleek, suitable for all types of realistic portraits.">Холст из натурального хлопка</option>
+							<option value="">Choose painting materials</option>
+							<option value="fiber" title="Graceful, makes it easy to create texture, suitable for decorative oil paintings.">Fiber canvas</option>
+							<option value="linen" title="Rough enough to create a sense of reality, suitable for classic landscapes, still lifes and portraits.">Linen canvas</option>
+							<option value="cotton" title="Sleek, suitable for all types of realistic portraits.">Natural cotton canvas</option>
 						</select>
 						<select id=options>
-							<option >Additional services</option>
-							<option >Coating with art gel</option>
-							<option >Express manufacturing</option>
-							<option >Delivery of finished works</option>
+							<option value="">Additional services</option>
+							<option value="gel">Coating with art gel</option>
+							<option value="manufacture">Express manufacturing</option>
+							<option value="delivery">Delivery of finished works</option>
 						</select>
 						<input type="text" class="promocode" placeholder="Enter your promo code">
 						<div class=calc-price>To calculate, you need to choose the size of the painting and the material of the painting</div>
@@ -708,6 +680,8 @@
 			</div>
 		</div>
 	</div>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
 	<script src="script.js"></script>
 </body>
 </html>

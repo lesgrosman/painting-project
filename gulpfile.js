@@ -52,8 +52,8 @@ gulp.task("copy-assets", () => {
 
 gulp.task("watch", () => {
     browsersync.init({
-    server: "/home/glib/Dropbox/paintings-project",
-    // "./dist/"
+    // server: "/home/glib/Dropbox/paintings-project",
+    server: "./dist/",
 		port: 4000,
 		notify: true
     });
