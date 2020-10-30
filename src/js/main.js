@@ -9,6 +9,7 @@ import styles from './modules/styles';
 import calc from './modules/calc';
 import accordion from './modules/accordion';
 import burger from './modules/burger';
+import scrolling from './modules/scrolling';
 
 window.addEventListener('DOMContentLoaded', () => {
 
@@ -25,5 +26,6 @@ window.addEventListener('DOMContentLoaded', () => {
     calc('.calc-price', '.promocode');
     accordion('.accordion-heading');
     burger('.burger-menu', '.burger');
+    scrolling('.pageup');
 
 });
