@@ -44,10 +44,10 @@ const forms = () => {
             }
 
             const name = arr[0].substring(0, 5) + dots + arr[1];
-
             item.previousElementSibling.textContent = name;
         });
     });
+    
 
     forms.forEach(form => {
         form.addEventListener('submit', (e) => {
